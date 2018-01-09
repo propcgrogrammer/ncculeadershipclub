@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">政是領袖</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
+    <string name="select_zen_dialog_kind">請選擇禪定類型</string>
+    <string-array name="zen_kind_list">
+        <item>晨間禪</item>
+        <item>午間禪</item>
+        <item>晚間禪</item>
+        <item>其他</item>
+    </string-array>
+
+    <string name="select_zen_dialog_notify">請選擇提醒時間</string>
+    <string-array name="zen_notify_list">
+        <item>從不</item>
+        <item>1分鐘</item>
+        <item>5分鐘</item>
+        <item>10分鐘</item>
+        <item>30分鐘</item>
+        <item>60分鐘</item>
+    </string-array>
+
+</resources>

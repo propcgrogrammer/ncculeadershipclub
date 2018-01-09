@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+        <TextView
+            android:id="@+id/textView"
+            style="@style/Base.AlertDialog.AppCompat.Light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="14dp"
+            android:layout_toStartOf="@+id/dst_min_editText"
+            android:text="禪定時間"
+            android:textSize="40dp" />
+
+        <EditText
+            android:id="@+id/dst_min_editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textView2"
+            android:layout_marginEnd="24dp"
+            android:layout_toStartOf="@+id/textView2"
+            android:ems="3"
+            android:inputType="numberSigned" />
+
+        <TextView
+            android:id="@+id/textView2"
+            style="@style/Base.AlertDialog.AppCompat.Light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView"
+            android:layout_alignBottom="@+id/textView"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="22dp"
+            android:text="分鐘"
+            android:textSize="40dp" />
+
+        </TableRow>>
+
+
+        <Button
+            android:id="@+id/halt_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/textView2"
+            android:layout_below="@+id/dst_min_editText"
+            android:layout_marginEnd="36dp"
+            android:layout_marginTop="31dp"
+            android:text="停止" />
+
+        <Button
+            android:id="@+id/start_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/halt_button"
+            android:layout_alignBottom="@+id/halt_button"
+            android:layout_alignEnd="@+id/textView"
+            android:layout_marginEnd="34dp"
+            android:text="開始" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:text=""
+            android:textSize="70dp" />
+
+        <TextView
+            android:id="@+id/remain_textView"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/start_button"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="0"
+            android:textSize="70dp" />
+
+
+    </TableLayout>
+
+</LinearLayout>

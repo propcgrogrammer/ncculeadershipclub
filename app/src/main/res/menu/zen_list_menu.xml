@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ZenScheduleActivity">
+
+    <item
+        android:id="@+id/zen_add"
+        android:orderInCategory="100"
+        android:title="新增禪定行程"
+        app:showAsAction="always" />
+
+
+</menu>
