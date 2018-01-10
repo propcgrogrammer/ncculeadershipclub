@@ -12,63 +12,85 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textView"
-            style="@style/Base.AlertDialog.AppCompat.Light"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginEnd="14dp"
-            android:layout_toStartOf="@+id/dst_min_editText"
-            android:text="禪定時間"
-            android:textSize="40dp" />
+            <TextView
+                android:id="@+id/textView"
+                style="@style/Base.AlertDialog.AppCompat.Light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="14dp"
+                android:layout_toStartOf="@+id/dst_min_editText"
+                android:text="禪定時間"
+                android:textSize="40dp" />
 
-        <EditText
-            android:id="@+id/dst_min_editText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/textView2"
-            android:layout_marginEnd="24dp"
-            android:layout_toStartOf="@+id/textView2"
-            android:ems="3"
-            android:inputType="numberSigned" />
+            <EditText
+                android:id="@+id/dst_min_editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/textView2"
+                android:layout_marginEnd="24dp"
+                android:layout_toStartOf="@+id/textView2"
+                android:ems="3"
+                android:inputType="numberSigned" />
 
-        <TextView
-            android:id="@+id/textView2"
-            style="@style/Base.AlertDialog.AppCompat.Light"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/textView"
-            android:layout_alignBottom="@+id/textView"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="22dp"
-            android:text="分鐘"
-            android:textSize="40dp" />
-
-        </TableRow>>
+            <TextView
+                android:id="@+id/textView2"
+                style="@style/Base.AlertDialog.AppCompat.Light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView"
+                android:layout_alignBottom="@+id/textView"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="22dp"
+                android:text="分鐘"
+                android:textSize="40dp" />
 
 
-        <Button
-            android:id="@+id/halt_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/textView2"
-            android:layout_below="@+id/dst_min_editText"
-            android:layout_marginEnd="36dp"
-            android:layout_marginTop="31dp"
-            android:text="停止" />
+        </TableRow>
+        >
 
-        <Button
-            android:id="@+id/start_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/halt_button"
-            android:layout_alignBottom="@+id/halt_button"
-            android:layout_alignEnd="@+id/textView"
-            android:layout_marginEnd="34dp"
-            android:text="開始" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/textView8"
+                style="@style/Base.AlertDialog.AppCompat.Light"
+                android:layout_width="101dp"
+                android:layout_height="wrap_content"
+                android:text="提醒類型" />
+
+            <CheckBox
+                android:id="@+id/vibrate_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="震動" />
+
+            <CheckBox
+                android:id="@+id/ringtone_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="鈴聲" />
+        </TableRow>
+
+
+
+            <Button
+                android:id="@+id/start_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="開始" />
+
+            <Button
+                android:id="@+id/halt_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="停止" />
+
+
 
         <TextView
             android:id="@+id/textView3"

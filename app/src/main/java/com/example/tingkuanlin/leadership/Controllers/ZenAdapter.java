@@ -1,5 +1,6 @@
 package com.example.tingkuanlin.leadership.Controllers;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import com.example.tingkuanlin.leadership.Zen.Zen;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by tingkuanlin on 2018/1/8.
@@ -55,6 +57,7 @@ public class ZenAdapter extends BaseAdapter {
             vh.zen =(TextView) convertView.findViewById(R.id.zen_kind_textview);
             vh.start=(TextView) convertView.findViewById(R.id.zen_start_datetime);
             vh.end=(TextView) convertView.findViewById(R.id.zen_end_datetime);
+            vh.status=(TextView)  convertView.findViewById(R.id.zen_status);
 
             convertView.setTag(vh);
         }
@@ -69,6 +72,14 @@ public class ZenAdapter extends BaseAdapter {
 
         vh.start.setText("開始時間： " + sdf.format(array.get(position).getStartDate()));
         vh.end.setText("結束時間： " + sdf.format(array.get(position).getEndDate()));
+        Date now = new Date();
+        if(array.get(position).getStartDate().before(now)) {
+            vh.status.setTextColor(Color.RED);
+            vh.status.setText("已過期");
+        }else{
+            vh.status.setTextColor(Color.GREEN);
+            vh.status.setText("排程中");
+        }
 
         //vh.start.setText("開始時間： " + start_datetime);
         //vh.end.setText("結束時間： " + end_datetime);
@@ -77,7 +88,7 @@ public class ZenAdapter extends BaseAdapter {
         return convertView;
     }
     class ViewHolder{
-        TextView zen,start,end;
+        TextView zen,start,end,status;
     }
 
 }

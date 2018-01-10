@@ -151,6 +151,7 @@ public class Zen {
     public String getEnd_time(){return this.end_time;}
     public String getRemind_date(){return this.remind_date;}
     public String getRemind_time(){return this.remind_time;}
+    public String getRemind_date_time(){return this.remind_date_time;}
 
 
     public Date getStartDate(){return this.startDate;}

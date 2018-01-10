@@ -11,6 +11,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.Touch;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -23,6 +24,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.example.tingkuanlin.leadership.Controllers.NoteAdapter;
 import com.example.tingkuanlin.leadership.DBHelpers.RemindZenDBOperators;
@@ -36,6 +38,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Random;
 import java.util.StringTokenizer;
 
 /**
@@ -289,7 +292,7 @@ public class ZenSettingActivity extends AppCompatActivity {
                     zen=new Zen(id,type, startDate, startTime, endDate, endTime, notify,remindDate,remindTime);
                     zenDBOperators.toUpdate(zen);
 
-                    if(zen_notify.isChecked()) registForAlarm(id,remindDate,remindTime);
+                    if(zen_notify.isChecked()) registForAlarm(remindDate,remindTime);
 
                     new AlertDialog.Builder(ZenSettingActivity.this)
                             .setMessage("修改成功")
@@ -309,7 +312,7 @@ public class ZenSettingActivity extends AppCompatActivity {
                     zen=new Zen(type, startDate, startTime, endDate, endTime, notify, remindDate, remindTime);
                     zenDBOperators.toInsert(zen);
 
-                    if(zen_notify.isChecked()) registForAlarm(id,remindDate,remindTime);
+                    if(zen_notify.isChecked()) registForAlarm(remindDate,remindTime);
 
                     new AlertDialog.Builder(ZenSettingActivity.this)
                             .setMessage("新增成功")
@@ -618,7 +621,7 @@ public class ZenSettingActivity extends AppCompatActivity {
 
 
     }
-    private void registForAlarm(int id, String date, String time){
+    private void registForAlarm(String date, String time){
 
         StringTokenizer stringTokenizer = new StringTokenizer(date,"-");
         int year = Integer.parseInt(stringTokenizer.nextToken());
@@ -630,8 +633,8 @@ public class ZenSettingActivity extends AppCompatActivity {
         int min = Integer.parseInt(stringTokenizer.nextToken());
         int sec = Integer.parseInt(stringTokenizer.nextToken());
 
-        String dat = year+"/"+(month-1)+"/"+day+" "+hour+":"+min+":"+sec;
-        Log.e("date -> ",dat);
+        String dat = year+"/"+month+"/"+day+" "+hour+":"+min+":"+sec;
+
 
         Calendar cal = Calendar.getInstance();
         cal.set(year, month-1, day, hour, min, sec);
@@ -641,10 +644,16 @@ public class ZenSettingActivity extends AppCompatActivity {
         intent.putExtra("start_date_time",zen.getStart_date_time());
 
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        Random rand = new Random(System.currentTimeMillis());
+        int id = rand.nextInt(Integer.MAX_VALUE);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this,id,intent,PendingIntent.FLAG_ONE_SHOT);
         alarmManager.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), pendingIntent);
 
+
+        //Toast.makeText(ZenSettingActivity.this,"系統將於 "+dat+" 提醒您禪定行程",Toast.LENGTH_LONG);
+
         Log.e("Alarm => ", "set");
+
 
     }
 

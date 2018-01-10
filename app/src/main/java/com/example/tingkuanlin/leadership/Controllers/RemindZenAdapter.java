@@ -1,5 +1,6 @@
 package com.example.tingkuanlin.leadership.Controllers;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import com.example.tingkuanlin.leadership.Zen.Zen;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by tingkuanlin on 2018/1/9.
@@ -72,16 +74,30 @@ public class RemindZenAdapter extends BaseAdapter {
         int notify = array.get(position).getNotify();
 
 
-        if(notify == 1) {
+        if (notify == 1) {
+
+            Date now = new Date();
+
+            if(array.get(position).getRemindDate().before(now)){
+                vh.start.setText("開始時間： " + sdf.format(array.get(position).getStartDate()));
+                vh.end.setText("結束時間： " + sdf.format(array.get(position).getEndDate()));
+                vh.remind.setTextColor(Color.RED);
+                vh.remind.setText("提醒時間： 已過期");
+            }
+            else {
+
+                vh.start.setText("開始時間： " + sdf.format(array.get(position).getStartDate()));
+                vh.end.setText("結束時間： " + sdf.format(array.get(position).getEndDate()));
+                vh.remind.setTextColor(Color.rgb(1,126,72));
+                vh.remind.setText("提醒時間： " + sdf.format(array.get(position).getRemindDate()));
+            }
+        } else {
             vh.start.setText("開始時間： " + sdf.format(array.get(position).getStartDate()));
             vh.end.setText("結束時間： " + sdf.format(array.get(position).getEndDate()));
-            vh.remind.setText("提醒時間： " + sdf.format(array.get(position).getRemindDate()));
-        }
-        else{
-            vh.start.setText("開始時間： " + sdf.format(array.get(position).getStartDate()));
-            vh.end.setText("結束時間： " + sdf.format(array.get(position).getEndDate()));
+            vh.remind.setTextColor(Color.rgb(133,66,0));
             vh.remind.setText("提醒時間： 無設定提醒時間");
         }
+
 
         //vh.start.setText("開始時間： " + start_datetime);
         //vh.end.setText("結束時間： " + end_datetime);

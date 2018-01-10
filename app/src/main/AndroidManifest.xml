@@ -58,6 +58,8 @@
             android:screenOrientation="portrait"></activity>
         <receiver android:name=".Receiver.AlarmReceiver" >
         </receiver>
+        <receiver android:name=".Receiver.TimeOutReceiver" >
+        </receiver>
         <receiver android:name=".Receiver.BootReceiver"
             android:enabled="false">
             <intent-filter>

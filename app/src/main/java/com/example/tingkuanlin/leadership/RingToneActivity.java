@@ -1,12 +1,14 @@
 package com.example.tingkuanlin.leadership;
 
 import android.app.AlertDialog;
+import android.app.Service;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 
 import static android.media.RingtoneManager.TYPE_ALARM;
@@ -28,6 +30,7 @@ public class RingToneActivity extends AppCompatActivity {
         final Ringtone ringtone = RingtoneManager.getRingtone(this, alarmUri);
         // 播放鈴聲
         ringtone.play();
+        vibrateTimeOut();
 
         Intent intent = getIntent();
         String start_date_time =intent.getExtras().getString("start_date_time");
@@ -41,7 +44,13 @@ public class RingToneActivity extends AppCompatActivity {
                        ringtone.stop();
                     }
                 })
-                .create().show();
+                .show();
+
+    }
+    private void vibrateTimeOut(){
+
+        Vibrator myVibrator = (Vibrator) getApplication().getSystemService(Service.VIBRATOR_SERVICE);
+        myVibrator.vibrate(new long[]{1000, 2000, 1000, 2000, 1000, 2000}, -1);
 
     }
 }

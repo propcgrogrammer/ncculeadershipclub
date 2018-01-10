@@ -44,5 +44,14 @@
         android:text="結束時間"
         android:textSize="15dp" />
 
+    <TextView
+        android:id="@+id/zen_status"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/imageView4"
+        android:layout_below="@+id/imageView4"
+        android:layout_marginTop="12dp"
+        android:text="狀態" />
+
 
 </RelativeLayout>
