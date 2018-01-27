@@ -41,6 +41,38 @@ public class ZenDBOperators  {
 //
 //    }
 
+    public ArrayList<Zen> getTotalInfoArray(){
+        ArrayList<Zen> array=new ArrayList<Zen>();
+        ArrayList<Zen> array1=new ArrayList<Zen>();
+        myDatabase=zenDBHelper.getWritableDatabase();
+        Cursor cursor=myDatabase.rawQuery("select * from zen" , null);
+        cursor.moveToFirst();
+        while(!cursor.isAfterLast()){
+            int id = cursor.getInt(cursor.getColumnIndex("id"));
+            int type = cursor.getInt(cursor.getColumnIndex("type"));
+            String start_date=cursor.getString(cursor.getColumnIndex("start_date"));
+            String start_time=cursor.getString(cursor.getColumnIndex("start_time"));
+            String end_date=cursor.getString(cursor.getColumnIndex("end_date"));
+            String end_time=cursor.getString(cursor.getColumnIndex("end_time"));
+            int notify = cursor.getInt(cursor.getColumnIndex("notify"));
+            int notifyTime = cursor.getInt(cursor.getColumnIndex("notify_time"));
+            int isNotify = cursor.getInt(cursor.getColumnIndex("is_notify"));
+            int notifyType = cursor.getInt(cursor.getColumnIndex("notify_type"));
+            String remind_date=cursor.getString(cursor.getColumnIndex("remind_date"));
+            String remind_time=cursor.getString(cursor.getColumnIndex("remind_time"));
+
+
+
+            Zen zen = new Zen(id,type,start_date,start_time,end_date,end_time,notify,notifyTime,isNotify,notifyType,remind_date,remind_time);
+            array.add(zen);
+            cursor.moveToNext();
+        }
+        myDatabase.close();
+        for (int i = array.size(); i >0; i--) {
+            array1.add(array.get(i-1));
+        }
+        return array1;
+    }
 
     public ArrayList<Zen> getArray(){
         ArrayList<Zen> array=new ArrayList<Zen>();

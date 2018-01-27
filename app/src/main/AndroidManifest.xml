@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/app_icon"
@@ -56,12 +57,12 @@
         <activity
             android:name=".RingToneActivity"
             android:screenOrientation="portrait"></activity>
+
         <receiver android:name=".Receiver.AlarmReceiver" >
         </receiver>
         <receiver android:name=".Receiver.TimeOutReceiver" >
         </receiver>
-        <receiver android:name=".Receiver.BootReceiver"
-            android:enabled="false">
+        <receiver android:name=".Receiver.BootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>

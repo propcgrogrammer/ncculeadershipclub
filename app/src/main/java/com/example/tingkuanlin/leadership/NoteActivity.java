@@ -104,13 +104,20 @@ public class NoteActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // TODO Auto-generated method stub
+
+        Intent intent = null;
+
         switch (item.getItemId()) {
+
             case R.id.item1:
-                Intent intent=new Intent(getApplicationContext(),NotePadActivity.class);
+                intent=new Intent(getApplicationContext(),NotePadActivity.class);
                 startActivity(intent);
 
                 break;
             case R.id.item2:
+                intent=new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
+                finish();
 
                 break;
             default:

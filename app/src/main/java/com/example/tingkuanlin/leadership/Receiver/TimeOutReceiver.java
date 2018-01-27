@@ -40,7 +40,7 @@ public class TimeOutReceiver extends BroadcastReceiver {
         };
         Timer timer = new Timer();
         // 5秒後停止鈴聲
-        timer.schedule(task, 8000);
+        timer.schedule(task, 10000);
 
 
     }

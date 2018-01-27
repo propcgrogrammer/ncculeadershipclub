@@ -85,8 +85,10 @@ public class ZenSettingActivity extends AppCompatActivity {
         remind_time = (EditText) findViewById(R.id.remind_time);
 
 
+
         remind_date.setEnabled(false);
         remind_time.setEnabled(false);
+
 
 
         zenDBOperators = new ZenDBOperators(this);
@@ -106,6 +108,7 @@ public class ZenSettingActivity extends AppCompatActivity {
             end_date.setText(zen.getEnd_date());
             end_time.setText(zen.getEnd_time());
 
+
             ////////////////////////////////////////////
             remind_date.setText(zen.getRemind_date());
             remind_time.setText(zen.getRemind_time());
@@ -118,6 +121,7 @@ public class ZenSettingActivity extends AppCompatActivity {
                 if(compoundButton.isChecked()) {
                     remind_date.setEnabled(true);
                     remind_time.setEnabled(true);
+
                 }else{
                     remind_date.setEnabled(false);
                     remind_time.setEnabled(false);
@@ -288,7 +292,9 @@ public class ZenSettingActivity extends AppCompatActivity {
                 if(zen_notify.isChecked()) notify = 1;
                 else   notify = 0;
 
+
                 if(id!=0){
+                    int isNotify = 0;
                     zen=new Zen(id,type, startDate, startTime, endDate, endTime, notify,remindDate,remindTime);
                     zenDBOperators.toUpdate(zen);
 
@@ -647,6 +653,7 @@ public class ZenSettingActivity extends AppCompatActivity {
         Random rand = new Random(System.currentTimeMillis());
         int id = rand.nextInt(Integer.MAX_VALUE);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this,id,intent,PendingIntent.FLAG_ONE_SHOT);
+
         alarmManager.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), pendingIntent);
 
 

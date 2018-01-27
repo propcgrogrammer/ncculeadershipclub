@@ -24,9 +24,11 @@ import com.example.tingkuanlin.leadership.NotePad.Notepad;
 import com.example.tingkuanlin.leadership.Zen.Zen;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.StringTokenizer;
 
 /**
  * Created by tingkuanlin on 2018/1/7.
@@ -45,7 +47,7 @@ public class ZenScheduleActivity extends AppCompatActivity {
 
     LayoutInflater inflater;
     ArrayList<Zen> array;
-    ZenDBOperators zenDBOperators;
+    ZenDBOperators zenDBOperators = null;
 
 
     private String[] tittle = {"晨間禪","午間禪","晚間禪"};
@@ -69,10 +71,45 @@ public class ZenScheduleActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
 
-                Intent intent=new Intent(getApplicationContext(),ZenSettingActivity.class);
-                intent.putExtra("id",array.get(position).getId() );
-                startActivity(intent);
-                finish();
+                int id = array.get(position).getId();
+                zenDBOperators = new ZenDBOperators(ZenScheduleActivity.this);
+                Zen zen= zenDBOperators.getZen(id);
+                String start_date = zen.getStart_date();
+                String start_time = zen.getStart_time();
+                StringTokenizer stringTokenizer = new StringTokenizer(start_date, "-");
+                int year = Integer.parseInt(stringTokenizer.nextToken());
+                int month = Integer.parseInt(stringTokenizer.nextToken());
+                int day = Integer.parseInt(stringTokenizer.nextToken());
+
+                stringTokenizer = new StringTokenizer(start_time, ":");
+                int hour = Integer.parseInt(stringTokenizer.nextToken());
+                int min = Integer.parseInt(stringTokenizer.nextToken());
+                int sec = Integer.parseInt(stringTokenizer.nextToken());
+                Calendar cal = Calendar.getInstance();
+                cal.set(year, month - 1, day, hour, min, sec);
+
+                Calendar now = Calendar.getInstance();
+
+                if(cal.before(now)){
+
+                    new android.app.AlertDialog.Builder(ZenScheduleActivity.this)
+                            .setMessage("時間已過，僅可檢視！！")
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+
+                                }
+                            })
+                            .show();
+
+                }
+                else {
+                    Intent intent = new Intent(getApplicationContext(), ZenSettingActivity.class);
+                    intent.putExtra("id", id);
+                    startActivity(intent);
+                    finish();
+                }
             }
         });
 

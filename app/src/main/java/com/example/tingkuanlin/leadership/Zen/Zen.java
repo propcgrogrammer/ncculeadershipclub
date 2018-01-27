@@ -24,6 +24,9 @@ public class Zen {
     private String remind_time = null;
     private String remind_date_time = null;
     private int notify = -1;
+    private int notifyTime = -1;
+    private int isNotify = 0;
+    private int notifyType = -1;
 
     private Date startDate = null;
     private Date endDate = null;
@@ -73,6 +76,55 @@ public class Zen {
         setRemindDate();
     }
 
+    public Zen(int type, String start_date, String start_time,
+               String end_date, String end_time, int notify,
+               int notifyTime, int isNotify, int notifyType ,String remind_date, String remind_time)
+    {
+        setType(type);
+        setStart_date(start_date);
+        setStart_time(start_time);
+        setEnd_date(end_date);
+        setEnd_time(end_time);
+        setRemind_date(remind_date);
+        setRemind_time(remind_time);
+        setNotify(notify);
+        setNotifyTime(notifyTime);
+        setIsNotify(isNotify);
+        setNotifyType(notifyType);
+        setStart_date_time(start_date, start_time);
+        setEnd_date_time(end_date, end_time);
+        setRemind_date_time(remind_date,remind_time);
+
+        setStartDate();
+        setEndDate();
+        setRemindDate();
+    }
+    public Zen(int id, int type, String start_date, String start_time,
+               String end_date, String end_time, int notify,
+               int notifyTime, int isNotify, int notifyType,String remind_date, String remind_time)
+    {
+        setId(id);
+        setType(type);
+        setStart_date(start_date);
+        setStart_time(start_time);
+        setEnd_date(end_date);
+        setEnd_time(end_time);
+        setRemind_date(remind_date);
+        setRemind_time(remind_time);
+        setNotify(notify);
+        setNotifyTime(notifyTime);
+        setIsNotify(isNotify);
+        setNotifyType(notifyType);
+        setStart_date_time(start_date, start_time);
+        setEnd_date_time(end_date, end_time);
+        setRemind_date_time(remind_date,remind_time);
+
+        setStartDate();
+        setEndDate();
+        setRemindDate();
+    }
+
+
     public void setId(int id){this.id = id;}
     public void setType(int type){this.type = type;}
     public void setStart_date(String start_date){this.start_date = start_date;}
@@ -91,6 +143,9 @@ public class Zen {
         this.remind_date_time = remind_date + " " + remind_time;
     }
     public void setNotify(int notify){this.notify = notify;}
+    public void setNotifyTime(int time){this.notifyTime = time;}
+    public void setNotifyType(int type){this.notifyType = type;}
+    public void setIsNotify(int isNotify){this.isNotify = isNotify;}
     public void setStartDate(){
 
         try {
@@ -158,6 +213,9 @@ public class Zen {
     public Date getEndDate(){return this.endDate;}
     public Date getRemindDate(){return this.remindDate;}
     public int getNotify(){return this.notify;}
+    public int getNotifyTime(){return this.notifyTime;}
+    public int getNotifyType(){return this.notifyType;}
+    public int getIsNotify(){return this.isNotify;}
 
     public Date convertFromStringToDate(String date){
 

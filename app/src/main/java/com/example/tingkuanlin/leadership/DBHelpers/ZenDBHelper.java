@@ -19,7 +19,7 @@ public class ZenDBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         // TODO Auto-generated method stub
-        db.execSQL("create table zen(id integer PRIMARY KEY autoincrement,type integer,start_date char,start_time char,end_date char,end_time char,notify integer, remind_date char , remind_time char)");
+        db.execSQL("create table zen(id integer PRIMARY KEY autoincrement,type integer,start_date char,start_time char,end_date char,end_time char,notify integer , remind_date char , remind_time char)");
     }
 
     @Override

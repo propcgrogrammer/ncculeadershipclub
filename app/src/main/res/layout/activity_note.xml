@@ -43,7 +43,7 @@
         android:layout_alignLeft="@+id/textView2"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/textView2"
-        android:hint="紀錄美好生活..."
+        android:hint="紀錄重要事項..."
         android:background="#F7F5E9"
         android:textColor="#6D452F"
         android:paddingLeft="5dp"
