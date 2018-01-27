@@ -82,7 +82,7 @@ public class RemindZenAdapter extends BaseAdapter {
                 vh.start.setText("開始時間： " + sdf.format(array.get(position).getStartDate()));
                 vh.end.setText("結束時間： " + sdf.format(array.get(position).getEndDate()));
                 vh.remind.setTextColor(Color.RED);
-                vh.remind.setText("提醒時間： 已過期");
+                vh.remind.setText("提醒時間：" + sdf.format(array.get(position).getRemindDate()) + " 已過期");
             }
             else {
 

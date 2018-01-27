@@ -51,7 +51,7 @@
         android:layout_toEndOf="@+id/imageView4"
         android:text="提醒時間"
         android:textColor="@android:color/holo_red_dark"
-        android:textSize="15dp" />
+        android:textSize="12dp" />
 
 
 </RelativeLayout>
